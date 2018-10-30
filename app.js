@@ -1,14 +1,17 @@
 const express = require('express');
-const app = express();
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const app = express();
 
 mongoose.connect('mongodb://localhost/rotten-potatoes');
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
+app.use(bodyParser.urlencoded({ extended: true}));
 
 const Review = mongoose.model('Review', {
     title: String,
+    description: String,
     movieTitle: String
 });
 
@@ -23,6 +26,8 @@ const Review = mongoose.model('Review', {
 //     res.render('home', {msg: 'Handlebars are cool!'});
 // });
 
+
+// Index
 app.get('/', (req, res) => {
     Review.find()
         .then(reviews => {
@@ -32,6 +37,22 @@ app.get('/', (req, res) => {
             console.log(err);
         })
 })
+
+// New
+app.get('/reviews/new', (req, res) => {
+    res.render('reviews-new', {});
+})
+
+// Create
+app.post('/reviews', (req, res) => {
+    Review.create(req.body).then((review) => {
+        console.log(review);
+        res.redirect('/');
+    }).catch((err) => {
+        console.log(err.message);
+    })
+})
+
 
 app.listen(3000, () => {
     console.log('App listening on port 3000!');
