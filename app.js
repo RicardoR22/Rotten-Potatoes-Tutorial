@@ -12,7 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true}));
 const Review = mongoose.model('Review', {
     title: String,
     description: String,
-    movieTitle: String
+    movieTitle: String,
+    rating: Number
 });
 
 // let reviews = [
