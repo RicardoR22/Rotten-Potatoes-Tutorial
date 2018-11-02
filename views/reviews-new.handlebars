@@ -1,10 +1,13 @@
 <!-- views/reviews-new -->
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <form method="POST" action="/reviews">
+            {{> reviews-form}}
 
-<form method="POST" action="/reviews">
-    {{> reviews-form}}
-
-    <!-- Button -->
-    <p>
-        <button type="submit">Save Review</button> <a href="/">Cancel</a>
-    </p>
-</form>
+            <!-- Button -->
+            <div class="form-group">
+                <button type="submit">Save Review</button> <a href="/">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>

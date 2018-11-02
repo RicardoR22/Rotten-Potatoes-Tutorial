@@ -1,15 +1,19 @@
 <!-- views/reveiews-show.handlebars -->
 <a href="/">Back to Home</a>
-<h1>{{review.title}}<h1>
-<h2>{{review.movieTitle}}</h2>
-<h2>Rating: {{review.rating}}</h2>
-<p>{{review.description}}</p>
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <h1>{{review.title}}</h1>
+        <b>{{review.movieTitle}}</b><br>
+        <b>Rating: {{review.rating}}</b>
+        <p>{{review.description}}</p>
 
-<p><a href="/reviews/{{review._id}}/edit">Edit</a></p>
+        <p><a href="/reviews/{{review._id}}/edit">Edit</a></p>
 
-<!-- Delete Button !-->
-<p>
-    <form method="POST" action="/reviews/{{review._id}}?_method=DELETE">
-        <button type="submit">Delete</button>
-    </form>
-</p>
+        <!-- Delete Button !-->
+        <p>
+            <form method="POST" action="/reviews/{{review._id}}?_method=DELETE">
+                <button type="submit">Delete</button>
+            </form>
+        </p>
+    </div>
+</div>
