@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 
 
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes'));
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes');
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 app.listen(port);
