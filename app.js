@@ -5,12 +5,14 @@ const mongoose = require('mongoose');
 // const methodOverride = require('method-override');
 const app = express();
 const reviews = require('./controllers/reviews')(app);
+const port = process.env.PORT || 3000;
 
 
 
-mongoose.connect('mongodb://localhost/rotten-potatoes');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes'));
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
+app.listen(port);
 // app.use(bodyParser.urlencoded({ extended: true}));
 // app.use(methodOverride('_method'));
 
