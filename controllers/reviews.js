@@ -1,5 +1,6 @@
 // controllers/reviews.js
 const Review = require('../models/review');
+const Comment = require('../models/comment');
 const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 
@@ -24,7 +25,11 @@ module.exports = function(app) {
     // Show
     app.get('/reviews/:id', (req, res) => {
         Review.findById(req.params.id).then((review) => {
-            res.render('reviews-show', {review: review});
+            // fetch its comments
+            Comment.find({ reviewId: req.params.id }).then(comments => {
+                //respond with the template with both values
+                res.render('reviews-show', {review: review, comments: comments});
+            })
         }).catch((err) => {
             console.log(err.message);
         })

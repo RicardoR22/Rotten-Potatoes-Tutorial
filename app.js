@@ -5,6 +5,9 @@ const mongoose = require('mongoose');
 // const methodOverride = require('method-override');
 const app = express();
 const reviews = require('./controllers/reviews')(app);
+const comments = require('./controllers/comments')(app);
+
+// const Review = require('./models/review');
 const port = process.env.PORT || 3000;
 
 
@@ -23,6 +26,6 @@ module.exports = app;
 
 
 
-app.listen(3000, () => {
-    console.log('App listening on port 3000!');
-});
+// app.listen(3000, () => {
+//     console.log('App listening on port 3000!');
+// });
