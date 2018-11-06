@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
         <h1>{{review.title}}</h1>
-        <b>{{review.movieTitle}}</b><br>
+        <h2>{{review.movieTitle}}</h2><br>
         <b>Rating: {{review.rating}}</b>
         <p>{{review.description}}</p>
 
@@ -15,5 +15,11 @@
                 <button type="submit">Delete</button>
             </form>
         </p>
+
+        <hr>
+
+        <!-- Comment form -->
+        {{> comment-form}}
+        
     </div>
 </div>
