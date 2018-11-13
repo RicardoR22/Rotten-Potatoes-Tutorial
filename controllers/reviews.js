@@ -10,13 +10,13 @@ module.exports = function(app) {
     app.use(bodyParser.urlencoded({ extended: true}));
     app.use(methodOverride('_method'));
     //Index
-    app.get('/', (req, res) => {
-        Review.find().then(reviews => {
-            res.render('reviews-index', {reviews: reviews});
-        }).catch(err => {
-            console.log(err.message);
-        })
-    })
+    // app.get('/', (req, res) => {
+    //     Review.find().then(reviews => {
+    //         res.render('reviews-index', {reviews: reviews});
+    //     }).catch(err => {
+    //         console.log(err.message);
+    //     })
+    // })
 
     //New
     app.get('/reviews/new', (req, res) => {
