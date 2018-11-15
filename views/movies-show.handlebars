@@ -1,7 +1,7 @@
 <!-- movies-show.handlebars -->
 
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-4" >
         <img class="img-responsive" src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}"/>
     </div>
 
@@ -15,4 +15,17 @@
             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{movie.trailer_youtube_id}}?rel=0"></iframe>
         </div>
     </div>
+
+    <div class="text-right">
+        <a href="/movies/{{movie.id}}/reviews/new" class="btn btn-primary">Write Review</a>
+    </div>
+
+
 </div>
+
+<hr>
+
+<h3>Reviews</h3>
+{{#each reviews}}
+    {{> review}}
+{{/each}} 

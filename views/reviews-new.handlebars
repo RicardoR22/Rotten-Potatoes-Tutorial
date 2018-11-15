@@ -1,9 +1,9 @@
 <!-- views/reviews-new -->
 <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
-        <form method="POST" action="/reviews">
+        <form method="POST" action="/movies/{{movieId}}/reviews">
+            <input type="hidden" name="movieId" value="{{movieId}}">
             {{> reviews-form}}
-
             <!-- Button -->
             <div class="form-group">
                 <button type="submit">Save Review</button> <a href="/">Cancel</a>
